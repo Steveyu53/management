@@ -1,0 +1,27 @@
+
+  h3{
+    text-align:center;
+    color:#4169E1;
+  }
+.form-group{
+    color:#4169E1;
+  }
+  #reg{
+ border:1px solid lightblue;
+ border-radius: 15px;
+ border-width: 3px;
+ margin:20px 0px 0px 10px;
+padding: 2px 20px 20px 20px ;
+}
+
+.exregbtn{
+  margin-left: 228px;
+}
+hr{
+   border-top:3px  groove #0094ff;
+}
+h5{
+margin-left:420px;
+}
+
+  

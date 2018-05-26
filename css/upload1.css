@@ -1,0 +1,20 @@
+hr{
+	border-top:3px  groove #0094ff;
+}
+h5{
+margin-left:420px;
+}
+ .form-group{
+    color:#4169E1;
+  }
+  .uploadbtn{
+    margin-left: 90px;
+  }
+#upload{
+ border:1px solid lightblue;
+ border-radius: 15px;
+ border-width: 3px;
+ margin:20px 0px 0px 200px;
+padding: 20px 0px 10px 85px ;
+    
+}

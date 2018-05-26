@@ -1,0 +1,34 @@
+  .row {
+            margin: 0px;
+        }
+     body {
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+        }
+     a:hover{
+             color:#930093;
+        }
+  
+  #header{
+             margin-top: 0px;
+            padding-top:16px;
+            width:100%;
+            height:70px;
+            background-color:#DDA0DD; 
+  }
+  footer{
+    padding-top:56px;
+  }
+  footer hr{
+    border-top:3px  groove #0094ff;
+  }
+  h5{
+ margin-left:660px;
+}
+ .form-group{
+    color:#4169E1;
+  }
+  .uploadbtn{
+    margin-left: 180px;
+  }

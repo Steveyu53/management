@@ -1,0 +1,40 @@
+.footer {
+	margin-top:20px;
+}
+html,body {
+
+margin: 0;
+
+padding:0; height: 100%;
+
+}
+
+#container {
+
+min-height:100%;
+
+height: auto !important;
+
+height: 100%; /*IE6不识别min-height*/
+
+position: relative;
+
+}
+
+.footer {
+	
+
+position:
+
+absolute;
+
+bottom: 0;
+
+width: 75%;
+
+height: 30px;/*脚部的高度*/;
+
+clear:both;
+
+
+}

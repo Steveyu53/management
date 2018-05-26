@@ -1,0 +1,34 @@
+.row {
+            margin: 0px;
+        }
+     body {
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+        }
+     a:hover{
+             color:#930093;
+        }
+  
+  #header{
+            margin-top: 0px;
+            padding-top:16px;
+            width:100%;
+            height:70px;
+            background-color:#DDA0DD; 
+  }
+
+  h2{
+      font-family: "楷体";
+      color:#4169E1;
+  }
+
+ hr{
+  height:1px;
+  width:1250px;                
+ border-top:4px  ridge blueviolet;
+ }
+ footer hr{
+ width:100%;
+ border-top:3px   groove #0094ff;
+ }

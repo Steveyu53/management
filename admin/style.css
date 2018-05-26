@@ -1,0 +1,11 @@
+body {  font-size: 14px;; background-color: #e6f2ff; margin-top: 0px; margin-left: 0px; font-style: normal; line-height: 180%; background-image: url(images/sato.gif)}
+.kuan {  border: #01519f; border-style: solid; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px}
+.font {  font-size: 14px;; text-decoration: none; line-height: 180%}
+.linkfont {  font-size: 14px;; color: #006699; text-decoration: none; line-height: 180%}
+a.linkfont:hover {  font-size: 14px;; line-height: 180%; color: #F06000; text-decoration: underline}
+.textinput {  border: 1px #01519f solid;BACKGROUND: #ffffff;FONT-SIZE: 14px;; FONT-FAMILY: arial}
+.textinput2 {  border: 1px #EEF7FF solid;BACKGROUND: #EEF7FF;FONT-SIZE: 14px; ;color: #EEF7FF; FONT-FAMILY: arial}
+.textbotton {  border: 1px #01519f solid;BACKGROUND: #ffffff;FONT-SIZE: 14px;; FONT-FAMILY: arial}
+
+
+.jingfont {  font-size: 14px;; font-style: normal; text-decoration: none; line-height: 158%}

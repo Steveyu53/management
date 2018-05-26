@@ -1,0 +1,249 @@
+<?php
+session_start();
+require("connection/conn.php"); ?>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>房屋销售及租赁系统</title>
+
+<link rel="stylesheet" href="css.css" type="text/css">
+<link  type="text/css" rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+         <script src="./bootstrap/js/jquery-1.11.1.min.js"></script>
+       <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <link href="css/base2.css" rel="stylesheet" type="text/css" />
+    <link href="css/css4.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./bootstrap/js/jquery-1.4.1.js"></script>
+<script type="text/javascript" src="./bootstrap/js/public2.js"></script>
+ <script type="text/javascript" src="http://cdn.ynu.edu.cn/other/ynujs/fcous.js"></script>
+</head>
+<script language="JavaScript" src="share/nei_fc.js"></script>
+<script language="JavaScript">
+<!--
+	function checklogin()
+		{
+			if (document.form1.username.value=="")
+			{
+				alert("请输入用户名!");
+				form1.username.focus();
+				return false;
+			}
+                        if (document.form1.password.value=="")
+			{
+				alert("请输入密码!");
+				form1.password.focus();
+				return false;
+			}
+			return true;
+		}
+//-->
+</script>
+
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0">
+
+ <!--主体2 开始-->
+        <div class="main">
+            
+        <!--头部 开始-->
+            <div class="header">
+               
+                <div class="contact">
+           <span>   
+<?php
+   if(@$_SESSION[username]!=""){
+     
+   include("conn.php");
+      $sql1=mysql_query("select * from house_user where username='".$_SESSION[username]."'",$conn);
+     $info1=mysql_fetch_array($sql1);
+     echo "欢迎<b>$_SESSION[username]</b>";
+
+    
+    
+    
+  ?>&nbsp;</span> 
+   <span class="header-signup"> <a href="logout.php" id="js-signup-btn" onclick="return confirm('是否退出登录')">退出</a> </span>
+            <?php
+            }else{
+          ?>
+<a href="login.php">登录</a>
+            <a href="reg2.php" >注册</a>
+          <?php }?>
+      <a href="admin/">我是管理员</a>
+
+                    
+                </div>
+            </div>
+            <!--导航 开始-->
+            <div class="nav">
+                <div class="navLeft"></div>
+                <div class="navRight"></div>
+
+                <div class="search">
+                    <div class="searchbg">
+     <form name="dataForm" target="_blank" method="post" action="dosearch.php" name="form" >
+       <input name="jdcz" value="jdcz"size="4" value="1" type = "hidden">
+                       <input type="text" value="输入关键字"  id="query" name="name" 
+        />
+                   </div>
+                   <input type="submit" value="" class="searchSub"/>
+                 
+      
+                     
+               </form> 
+<!-- <form name="dataForm" target="_blank" method="post" action="dosearch.php" name="form" >
+    <input name="jdbc" size="4" value="1" type = "hidden">
+                    <input type="text" value="站内搜索"  id="query" name="name" />
+                </div>
+                <input type="submit" value="" class="searchSub"/>
+            </form> -->
+
+        </div>
+
+
+                <ul class="mainNav clearfix" id="mainNav">
+        <li><a title="首页" href="index.php">首页</a></li>
+        <li><a title="出租房屋" href="hack.php">出租房屋</a>
+        <li><a title="求租房屋" href="hire.php">求租房屋</a>
+        <li><a title="出售房屋" href="sell.php">出售房屋</a>
+        <li><a title="求购房屋" href="buy.php">求购房屋</a>
+        <li><a title="留言板" href="guest.php">留言板</a>  
+                </ul>
+            </div>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+	<script language="JavaScript">
+<!--
+	function checklogin()
+		{
+			if (document.form1.username.value=="")
+			{
+				alert("请输入用户名!");
+				form1.username.focus();
+				return false;
+			}
+             if (document.form1.password.value=="")
+			{
+				alert("请输入密码!");
+				form1.password.focus();
+				return false;
+			}
+			if (document.form1.user_class.value=="")
+			{
+				alert("请选择用户类型!");
+				form1.user_class.focus();
+				return false;
+			}
+			return true;
+		}
+//-->
+</script>
+<?php
+if ($_SESSION["userlogin"]!="ok")
+{
+?>
+<div align="center">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        </table>
+
+      </div>
+      <div class="col-md-12" style="border:1px solid lightblue;border-radius: 10px;border-width: 3px;margin-top: 60px;">
+       <div class="col-md-6" style="margin-top: 30px;"></div>
+       <div class="col-md-6" style="margin-top: 30px;">
+       <table width="100%" border="0">
+        <form action="checklogin.php" method=post name="form1" onSubmit="return checklogin()">
+          <ul>
+            <li>
+              <span style="font-size: 15px; color: blue;">用户名：</span>
+              <input type="text" name="username" class="form-control" size="1" placeholder="用户名"  >
+            </li>
+            <li>
+              <span style="font-size: 15px;color:blue; ">密 码：</span>
+              <input type="password" name="password" size="1" class="form-control" >
+            </li>
+            <li>
+              <input type="submit" name="Submit" value="登陆">
+              <input type="button" name="Submit2" value="注册" onClick="window.location='reg2.php'" target="_blank">
+            </li>  
+          </ul>
+        </form>
+       </table>
+       </div>
+      </div>
+<?php
+}
+else
+{
+?>
+      <table width="154" border="0" align="center" cellpadding="6" cellspacing="0">
+        <tr>
+          <td align="left" valign="middle" bgcolor="#FFFFFF" class="xu_kuan"><div align="center"><span class="font">您好！<font color=red><?php echo $_SESSION["user_name"]?></font></span></div></td>
+        </tr>
+        <tr>
+          <td align="left" valign="middle" bgcolor="#FFFFFF" class="xu_kuan"><div align="center"><span class="font">欢迎您<?php echo $_SESSION["loginname"]?>回来...</span></div></td>
+        </tr>
+
+        <tr>
+          <td align="left" valign="middle" bgcolor="#FFFFFF" class="xu_kuan">
+            <div align="center"><a href="logout.php" target="_parent"><img src="images/logout.gif" width="62" height="18" border="0"></a></div></td>
+        </tr>
+      </table>
+	  <table width="158" align="center" border="0" cellspacing="0" cellpadding="0" >
+
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+        <tr>
+          <td height="25" align="center" valign="middle" class="menu1"><a href="dj_hack.php" class="menu1">出
+            租 信 息 登 记</a></td>
+        </tr>
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+        <tr>
+          <td height="25" align="center" valign="middle"><a href="dj_hire.php" class="menu1">求
+            租 信 息 登 记</a></td>
+        </tr>
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+        <tr>
+          <td height="25" align="center" valign="middle"><a href="dj_sell.php" class="menu1">出
+            售 信 息 登 记</a></td>
+        </tr>
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+        <tr>
+          <td height="25" align="center" valign="middle"><a href="dj_buy.php" class="menu1">求
+            购 信 息 登 记</a></td>
+        </tr>
+        <tr>
+          <td height="3" align="center" valign="middle"><img src="images/member_small_line.gif" width="158" height="3"></td>
+        </tr>
+        <tr>
+          <td height="25" align="center" valign="middle"><a href="logout.php" class="ffbyfont2">退
+            出 会 员 专 区</a></td>
+        </tr>
+      </table>
+<?php
+			}
+	?>
+</td>
+  </tr>
+</table>

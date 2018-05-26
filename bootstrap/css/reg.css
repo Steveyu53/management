@@ -1,0 +1,51 @@
+ 
+   .row {
+            margin: 0px;
+        }
+     a:hover{
+             color:#930093;
+        }
+  
+  #header{
+             margin-top: 0px;
+            padding-top:16px;
+            width:100%;
+            height:70px;
+            background-color:#DDA0DD; 
+  }
+  footer{
+        padding-top: 170px;
+  }
+  body {
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+        }
+  h3{
+    text-align:center;
+    color:#4169E1;
+  }
+.form-group{
+    color:#4169E1;
+  }
+  #reg{
+ border:1px solid lightblue;
+ border-radius: 15px;
+ border-width: 3px;
+ margin:20px 0px 0px 10px;
+padding: 2px 20px 20px 20px ;
+    
+}
+footer{
+  padding-top:18px;
+}
+footer hr{
+  border-top:3px  groove #0094ff;
+}
+.regbtn{
+  margin-left: 180px;
+}
+h5{
+ margin-left:140px;
+}
+ 

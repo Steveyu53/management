@@ -1,0 +1,60 @@
+.header{
+	 background-color: #353636;
+	height: 100px;
+	width: 100%;
+	margin-top: 5px;
+}
+#welcome1{
+	font-size: 25px;
+
+}
+#welcome2{
+	font-size: 25px;
+	margin-left: 20px;
+	
+}
+.welcome{
+	float: left;
+	font-family: "微软雅黑";
+	color: white;
+	margin-top: 30px;
+}
+.regBox{
+	height: 100%;
+	width: 100%;
+	border: solid;
+	height: 500px;
+	margin-top: 20px;
+	text-align: center;
+}
+.footer{
+	height: 100px;
+	width: 100%;
+	margin-top: 20px;
+	background-color: lightgray;
+	text-align: center;
+}
+.footer p{
+	padding-top: 10px;
+}
+
+
+.regBox form{
+	margin-top: 100px;
+	text-align: center;
+}
+
+.reg_item{
+	font:14px/34px "宋体"; 
+	width:110px; 
+	text-align:right; 
+	float:left;
+}
+.reg_item i{
+	color:red; 
+	font-style:normal; 
+	margin-right:5px;
+}
+.input_item{
+	float:left;
+}

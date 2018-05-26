@@ -1,0 +1,254 @@
+<?php
+session_start();
+error_reporting(0);
+
+require("connection/conn.php"); ?>
+<html>
+<head>
+<title>房屋出售信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="css.css" type="text/css">
+<link  type="text/css" rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+         <script src="./bootstrap/js/jquery-1.11.1.min.js"></script>
+       <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <link href="css/base2.css" rel="stylesheet" type="text/css" />
+    <link href="css/css4.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./bootstrap/js/jquery-1.4.1.js"></script>
+<script type="text/javascript" src="./bootstrap/js/public2.js"></script>
+ <script type="text/javascript" src="http://cdn.ynu.edu.cn/other/ynujs/fcous.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="css.css" type="text/css">
+</head>
+<script language="JavaScript" src="share/nei_fc.js"></script>
+<script language="JavaScript">
+<!--
+	function checksearch()
+	{
+	if(!CheckIsNumeric(search.search_mj_min,"请在输入框中输入数值！")) return false;
+	if(!CheckIsNumeric(search.search_mj_max,"请在输入框中输入数值！")) return false;
+	if(!CheckIsNumeric(search.search_jg_min,"请在输入框中输入数值！")) return false;
+	if(!CheckIsNumeric(search.search_jg_max,"请在输入框中输入数值！")) return false;
+	}
+//-->
+</script>
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0">
+
+<div class="main">
+            
+        <!--头部 开始-->
+            <div class="header">
+               
+                <div class="contact">
+           <span>   
+<?php
+   if(@$_SESSION[username]!=""){
+     
+   include("conn.php");
+      $sql1=mysql_query("select * from house_user where username='".$_SESSION[username]."'",$conn);
+     $info1=mysql_fetch_array($sql1);
+     echo "欢迎<b>$_SESSION[username]</b>";
+
+    
+    
+    
+  ?>&nbsp;</span> 
+   <span class="header-signup"> <a href="logout.php" id="js-signup-btn" onclick="return confirm('是否退出登录')">退出</a> </span>
+            <?php
+            }else{
+          ?>
+<a href="login.php">登录</a>
+            <a href="reg2.php" >注册</a>
+          <?php }?>
+      <a href="admin/">我是管理员</a>
+
+                    
+                </div>
+            </div>
+            <!--导航 开始-->
+            <div class="nav">
+                <div class="navLeft"></div>
+                <div class="navRight"></div>
+
+                <div class="search">
+                    <div class="searchbg">
+     <form name="dataForm" target="_blank" method="post" action="dosearch.php" name="form" >
+       <input name="jdcz" value="jdcz"size="4" value="1" type = "hidden">
+                       <input type="text" value="输入关键字"  id="query" name="name" 
+        />
+                   </div>
+                   <input type="submit" value="" class="searchSub"/>
+                 
+      
+                     
+               </form> 
+<!-- <form name="dataForm" target="_blank" method="post" action="dosearch.php" name="form" >
+    <input name="jdbc" size="4" value="1" type = "hidden">
+                    <input type="text" value="站内搜索"  id="query" name="name" />
+                </div>
+                <input type="submit" value="" class="searchSub"/>
+            </form> -->
+
+        </div>
+
+
+                <ul class="mainNav clearfix" id="mainNav">
+        <li><a title="首页" href="index.php">首页</a></li>
+        <li><a title="出租房屋" href="hack.php">出租房屋</a>
+        <li><a title="求租房屋" href="hire.php">求租房屋</a>
+        <li><a title="出售房屋" href="sell.php">出售房屋</a>
+        <li><a title="求购房屋" href="buy.php">求购房屋</a>
+        <li><a title="留言板" href="guest.php">留言板</a>  
+                </ul>
+            </div>
+
+
+<table width="978" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr align="left" valign="top">
+    <td width="168">
+<?php require ("notlogin.php"); ?>
+
+    </td>
+	<td width="1" bgcolor="#CCCCCC"></td>
+    <td>
+      <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr align="left" valign="top">
+          <td width="260" height="172"><img src="images/sell_center.jpg" width="260" height="172"></td>
+          <td width="10" background="images/hack_r4_c18.jpg"><img src="images/hack_r4_c11.jpg" width="6" height="172"></td>
+          <td background="images/hack_r4_c18.jpg"><img src="images/sell_r4_c12.gif" width="175" height="42"><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <form action="sell.php" method=post name="search" onSubmit="return checksearch()">
+                <tr align="left" valign="middle">
+                  <td width="163" height="25" class="font"><font color="#0066CC">区域：</font>
+                    <select name="search_qy" id="search_qy" style="FONT-SIZE: 9pt; WIDTH: 90px; FONT-FAMILY: 宋体; HEIGHT: 22px" >
+                      <option value="" selected>-请选择-</option>
+                         <?php
+
+	$Sql="select * from house_area order by id";
+	$res=mysql_query($Sql);
+while($rs0=mysql_fetch_array($res))
+echo " <option value=$rs0[area_name]>$rs0[area_name]</option>";
+	?>
+                    </select> </td>
+                  <td width="163" class="font"><font color="#0066CC">房屋类型：</font>
+                    <select name=search_lx class="textinput">
+                      <option value="" selected>-请选择-</option>
+                      <option value="商品房">商品房</option>
+                      <option value="集资房">集资房</option>
+                      <option value="拆迁房">拆迁房</option>
+                      <option value="写字楼">写字楼</option>
+                      <option value="公房">公房</option>
+                      <option value="店面">店面</option>
+                      <option value="民房">民房</option>
+                      <option value="别墅">别墅</option>
+                    </select></td>
+                </tr>
+                <tr align="left" valign="middle">
+                  <td height="25" class="font"><font color="#0066CC">户型：</font>
+                    <select
+        name=search_hx style="FONT-SIZE: 9pt; WIDTH: 90px; FONT-FAMILY: 宋体; HEIGHT: 22px" >
+                      <option value="" selected>-请选择-</option>
+                      <option value="4室2厅2卫">4室2厅2卫</option>
+                      <option value="4室2厅1卫">4室2厅1卫</option>
+                      <option value="4室1厅1卫">4室1厅1卫</option>
+                      <option value="3室2厅2卫">3室2厅2卫</option>
+                      <option value="3室2厅1卫">3室2厅1卫</option>
+                      <option value="3室1厅1卫">3室1厅1卫</option>
+                      <option value="2室2厅1卫">2室2厅1卫</option>
+                      <option value="2室1厅1卫">2室1厅1卫</option>
+                      <option value="2室半1厅1卫">2室半1厅1卫</option>
+                      <option value="1室1厅1卫">1室1厅1卫</option>
+                      <option value="单间">单间</option>
+                      <option value="复式">复式</option>
+                      <option value="其他">其他</option>
+                    </select> </td>
+                  <td height="25" class="font"><font color="#0066CC">是否中介：</font>
+                    <select name="search_zj" class="textinput">
+                      <option value="" selected>-请选择-</option>
+                      <option value="非中介">非中介</option>
+                      <option value="中介">中介</option>
+                    </select></td>
+                </tr>
+                <tr align="left" valign="middle">
+                  <td height="25" class="font"><font color="#0066CC">面积：</font>
+                    <input name="search_mj_min" type="text" class="textinput" id="min" size="2">
+                    ~
+                    <input name="search_mj_max" type="text" class="textinput" id="max" size="2">
+                    ㎡</td>
+                  <td height="25" class="font"><font color="#0066CC">价格：</font>
+                    <input name="search_jg_min" type="text" class="textinput" id="min23" size="2">
+                    ~
+                    <input name="search_jg_max" type="text" class="textinput" id="max23" size="2">
+                    万元</td>
+                </tr>
+                <tr align="center" valign="bottom" >
+                  <td height="34" colspan="2" class="font"><input name="imageField" type="image" src="images/search.gif" width="60" height="23" border="0">
+                  </td>
+                </tr>
+              </form>
+            </table> </td>
+          <td width="25" align="right"><img src="images/hack_r4_c20.jpg" width="25" height="172"></td>
+        </tr>
+      </table>
+
+      <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+        <form name="form4" method="post">
+
+
+          <tr align="center" valign="middle" bgcolor="#F0F0F0">
+            <td height="21" class="font"><strong>是否中介</strong></td>
+            <td height="25" class="font"><strong>小区名称</strong></td>
+            <td height="21" class="font"><strong>所属区域</strong></td>
+            <td height="21"><strong><font class="font">房型</font></strong></td>
+            <td height="21"><strong><font class="font">面积(㎡)</font></strong></td>
+            <td height="21"><strong><font class="font">售价(万)</font></strong></td>
+            <td><strong><font class="font">登记时间</font></strong></td>
+          </tr>
+      <?php
+		  //构造查询条件
+	$where="";
+	if($search_qy!="")
+$where.="and qy='$search_qy'";
+if($search_lx!="")
+$where.="and wylx='$search_lx'";
+if($search_zj!="")
+$where.="and zj='$search_zj'";
+if($search_hx!="")
+$where.="and hx='$search_hx'";
+
+
+    $strSql="select * from house_sell where pass='是'
+	$where order by id desc";
+			$res=mysql_query($strSql);
+while($rs=mysql_fetch_array($res))
+{
+
+	?>
+          <tr align="center" valign="middle" bgcolor="#FFFFFF">
+
+            <td height="21" class="font" ><?php echo $rs["zj"]?></td>
+            <td height="21" ><a href="sub_sell.php?id=<?php echo $rs["id"]?>" target="_blank" class="linkfont"><font color="#EA0000"><?php echo $rs["house_name"]?></font></a></td>
+            <td height="21" class="font" ><?php echo $rs["qy"]?></td>
+            <td height="21" class="font" ><?php echo $rs["hx"]?></td>
+            <td height="21" class="font" ><?php echo $rs["jz_area"]?></td>
+            <td height="21" class="font" ><?php echo $rs["pay"]?></td>
+            <td class="font" >
+
+              <font color="#003D79"><?php echo $rs["date"]?></font>
+
+            </td>
+
+          </tr>
+      <?php
+}
+				?>
+
+        </form>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<?php require ("foot.htm"); ?>
+</body>
+</html>

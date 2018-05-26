@@ -1,0 +1,70 @@
+
+#main1{
+		background:#E6E6FA;
+
+	 border:hidden;
+	 height: 335px;
+    margin-top: 20px;
+    border-radius:15px;
+}
+h4{
+	  text-align: center;
+}
+#main{
+		
+	margin-top: 20px;
+
+	
+   
+}
+.detail{
+	margin-top: 20px;
+
+}
+#detail{
+	background-color: #F0F8FF;
+	 border:hidden;
+	
+    border-radius:15px;
+}
+}
+#cart{
+	margin-top: 10px;
+	background-color: #F0F8FF;
+}
+#cart1{
+	margin-top: 10px;
+	
+
+}
+.goods img{
+	width: 30%;
+}
+.count-input{
+	width:20%;
+}
+/*top*/
+#top{
+	margin-bottom: 10px;
+}
+/* 订单 */
+#order{
+	margin-top: 20px;
+}
+/*注册*/
+#register{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/*topBar*/
+.topBar{height:31px; background-color:#F7F7F7; line-height:31px;}
+.collection{background:url(../images/icon/collection.jpg) left center no-repeat; padding-left:19px; font-weight:bold;}
+.topBar a:hover{color:red;}
+
+/*公用*/
+.comWidth{width:1000px; margin-left:auto; margin-right:auto;}
+.leftArea{float:left;}
+.rightArea{float:right;}
+.hide{display:none;}
+.show{display:block;}

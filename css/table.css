@@ -1,0 +1,21 @@
+<style type="text/css">
+
+.table{border-collapse: collapse; width: 80%; font-size: 14px;}
+.table th{background-color: #003D79;color: white;text-align: center;}
+.table th,
+.table td{border: solid 1px #ccc; padding: 8px;text-align: center;}
+#details{
+  
+  font-family: "微软雅黑";
+  text-align: center;
+  left: auto;
+}
+
+   tr:nth-child(odd) {
+            background-color: #DDDDFF; /* green, 10% alpha */
+        }
+     tr:nth-child(even) {
+            background-color: white; /* red, 30% alpha */
+        }
+
+</style>
